@@ -1,5 +1,5 @@
 # Automate_LitReview
-This is a finetuning project on OpenAI's foundation models to improve their capabilities in writing professional academic literature review. Our primary focus is on papers from social sciences, mainly economics and finance. 
+This project focuses on fine-tuning OpenAI's foundation models to enhance their ability to craft professional academic literature reviews. Our primary emphasis is on research papers within the social sciences, particularly in economics and finance.
 
 # Data Collection
 A training sample of target papers are collected from Semantic Scholar. These papers are handpicked to ensure the quality of journals they are published in (e.g. QJE, JF, etc.).
