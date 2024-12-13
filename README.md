@@ -8,3 +8,6 @@ For each target paper, the metadata for references are retrieved from Semantic S
 
 Each training datapoint includes: [instruction prompt + target paper's literature review + target paper's research question + metadata of target paper's references]
 Hundreds of training examples are then used to fine tune gpt-4o. 
+
+# Fine-tuning 
+# Generated LitReview Eval
