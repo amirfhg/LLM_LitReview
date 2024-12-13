@@ -6,6 +6,7 @@ A curated training sample of target papers is collected from Semantic Scholar. T
 
 For each target paper, metadata for its references is also retrieved from Semantic Scholar. This metadata includes the 'publication year,' 'authors' names,' 'title,' and 'abstract.' The literature review sections of the target papers serve as the benchmark. Both the references' metadata (title and abstract) and the target papers' literature reviews are incorporated into the fine-tuning dataset.
 
+# Fine-tuning 
 Each training example consists of the following components:
 
 1. An instruction prompt.
@@ -14,6 +15,4 @@ Each training example consists of the following components:
 4. Title + abstract of the target paper's references.
 
 Hundreds of such training examples are compiled and used to fine-tune GPT-4/4o.
-
-# Fine-tuning 
 # Generated LitReview Eval
