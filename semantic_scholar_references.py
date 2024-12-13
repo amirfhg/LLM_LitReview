@@ -16,7 +16,8 @@ os.chdir(wdir)
 # List all target papers' PDF files in the directory 
 # Note. target papers are handpicked from semantic scholar and saved by their corpus id. This part must be done manually.
 # Target papers are handpicked to ensure collecting quality papers for fine-tuning.
-# We use corpus id to retrive paper metadata from semantic schoalr
+# We use corpus id to retrive target paper's references and their metadata from semantic schoalr
+
 target_papers = [file for file in os.listdir('./') if file.endswith('.pdf')]
 corpus_ids = [paper.split('/')[-1].replace('.pdf', '') for paper in target_papers]
 
