@@ -8,10 +8,10 @@ For each target paper, metadata for its references is also retrieved from Semant
 
 Each training example consists of the following components:
 
-An instruction prompt.
-1. The target paper's literature review.
-2. The target paper's research question.
-3. Title + abstract of the target paper's references.
+1. An instruction prompt.
+2. The target paper's literature review.
+3. The target paper's research question.
+4. Title + abstract of the target paper's references.
 Hundreds of such training examples are compiled and used to fine-tune GPT-4/4o.
 
 # Fine-tuning 
