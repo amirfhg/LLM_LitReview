@@ -6,8 +6,8 @@ import time
 import os
 
 # This code finds tile and abstract and other metadata of 'cited papers' within each target paper in train_sample 
-# The results are saved as a .csv with the same name as target paper (which is target paper's corpus id in semantic scholar) 
-# The same code is then implemented for papers in test_sample
+# The results are saved as a .csv with the same name as target paper .pdf (which is target paper's corpus id in semantic scholar) 
+# The same code is then implemented for papers in test_sample as well
 
 # Mount directory 
 wdir = r'./train_sample'
