@@ -6,10 +6,11 @@ Here we collect all the necessary input data and prepare the dataset for finetun
 1. The target paper's literature review.
 2. The target paper's research question.
 3. Metadata of the target paper's references.
-4. An instruction prompt.
+4. An instruction prompt."""
+
+
 ###################################################################
-1. Extract Intro/LitReview from Target Papers (benchmark litreview)
-"""
+# 1. Extract Intro/LitReview from Target Papers (benchmark litreview)
 
 import os
 import fitz  
@@ -65,9 +66,9 @@ for pdf in target_papers[0:1]:
     intros.append(intro_text)
     
 
-"""
+
 ##################################################
-2. Extract Research Question from Target Papers"""
+# 2. Extract Research Question from Target Papers
 
 # Here we use gpt-4o to extract the research question of each target paper
 
@@ -102,8 +103,8 @@ for intro in intros:
     research_q = chain.predict(context=context_str, question=query)
     research_q_list.append(research_q)
 
-"""#################################################
-3. Metadata for Referenced Papers by Target Paper"""
+#################################################
+# 3. Metadata for Referenced Papers by Target Paper
 
 # Here we load the metadata collected from Semantic Scholar into a single string for each target paper
 
@@ -130,8 +131,8 @@ for reference in target_papers_references:
     # Append the metadata string to the list
     metadata_list.append(metadata_string)
 
-"""################################################################
-4. Define Instruction Prompt and Save the whole Dataset as .json"""
+################################################################
+# 4. Define Instruction Prompt and Save the whole Dataset as .json 
 
 import openai
 import json
