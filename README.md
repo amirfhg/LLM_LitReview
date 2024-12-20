@@ -12,7 +12,7 @@ Each training example consists of the following components:
 1. An instruction prompt.
 2. The target paper's literature review.
 3. The target paper's research question.
-4. Title + abstract of the target paper's references.
+4. Metadata of the target paper's references.
 
 Hundreds of such training examples are compiled and used to fine-tune GPT-4/4o.
 # Generated LitReview Eval
