@@ -1,4 +1,4 @@
-# Automate_LitReview
+# Objective
 This project focuses on fine-tuning OpenAI's foundation models to enhance their ability to craft professional academic literature reviews. Our primary emphasis is on research papers within the social sciences, particularly in economics and finance.
 
 # Data Collection
