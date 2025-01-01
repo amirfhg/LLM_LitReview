@@ -27,14 +27,17 @@ For each paper in $$\prod_{train}$$, training example consists of the following 
 
 Below is the example of each entry for fine-tuning: 
 
-The following is a list of paper metadata separated by '|'.
-Each element in the list includes: title, abstract, author names, publication year.
-The items in this list are the papers referenced by the target paper. list of paper metadata = {metadata_list[i]}.
-The following is the research question from the target paper. research question = '{research_q_list[i]}'.
-Using abstract of papers content in the list of paper metadata, and considering the research question, learn to write the target paper's literature review.
-Remember target paper's literature review may contain material that are not directly or indirectly related to the content in the list of paper metadata.
-Ignore those parts in target paper's literature review.
-The following is target paper's literature review: target_paper_litreview = intros[i]
+> The following is a list of paper metadata separated by '|'.  
+> Each element in the list includes: title, abstract, author names, publication year.  
+> The items in this list are the papers referenced by the target paper.  
+> **list of paper metadata** = `{metadata_list[i]}`.  
+> The following is the research question from the target paper.  
+> **research question** = `'{research_q_list[i]}'`.  
+> Using abstract of papers content in the list of paper metadata, and considering the research question, learn to write the target paper's literature review.  
+> Remember target paper's literature review may contain material that is not directly or indirectly related to the content in the list of paper metadata.  
+> Ignore those parts in the target paper's literature review.  
+> The following is the target paper's literature review:  
+> **target_paper_litreview** = `intros[i]`
 
     
 
