@@ -9,13 +9,9 @@ These papers are carefully selected to ensure they are published in high-quality
 
 We also collect a set of out-of-sample papers $$\prod_{test}$$ to evaluate model performance. These are the papers published after 2020. 
 
-For each target paper $$p \in {\prod_{train}, \prod_{test}}$$, there is the set of referenced papers by $$p$$, R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,N<sub>p</sub></sub>}, $$N_{p}$$ being the number of papers referenced by $$p$$. 
+For each target paper $$p \in {\prod_{train}, \prod_{test}}$$, there is the set of referenced papers by $$p$$, R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,N<sub>p</sub></sub>}, $$N_{p}$$ being the number of papers referenced by $$p$$. The papers in $$R_{p}$$ are important as they are used both during the fine-tuning and evaluation stage. 
 
-The papers in $$R_{p}$$ are important as they are used both during the fine-tuning and evaluation stage. 
-
-For the fine-tuning stage these papers along with the literature review of the target paper $$p$$ are used to train the model. During the fine-tuning the model learns on how to read a set of papers (referenced papers by $$p$$) and write a literature review similar to the actual one in $$p$$.
-
-At this point, we do not use the entirity of referenced papers to fine-tune our model. Instead only rely on the metadata of the referenced papers. The metadata for papers in $$R_{p}$$ is retrieved from Semantic Scholar. This metadata includes the 'publication year,' 'authors' names,' 'title,' and 'abstract.' 
+For the fine-tuning stage these papers along with the literature review of the target paper $$p$$ are used to train the model. During the fine-tuning the model learns on how to read a set of papers (referenced papers by $$p$$) and write a literature review similar to the actual one in $$p$$. At this point, we do not use the entirity of referenced papers to fine-tune our model. Instead only rely on the metadata of the referenced papers. The metadata for papers in $$R_{p}$$ is retrieved from Semantic Scholar. This metadata includes the 'publication year,' 'authors' names,' 'title,' and 'abstract.' 
 
 Similarly during the evaluation stage for each out of sample paper $$p$$, $$R_{p}$$ is given to the fine-tuned model and is asked to generate a literature review which is then evaluated against the one in $$p$$. 
 
