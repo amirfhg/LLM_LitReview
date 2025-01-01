@@ -4,7 +4,7 @@ This project aims to improve frontier models' performance to craft professional 
 # Data Collection
 A curated training sample of target papers $$\prod_{train}$$ is collected from Semantic Scholar. These papers are carefully selected to ensure they are published in high-quality journals, such as QJE, JF, and JFE.
 
-For each target paper $$p \in \prod_{train}$$, there are $$Q<sub>p</sub> = {q<sub>p,1</sub>, q<sub>p,2</sub>, …, q<sub>p,M<sub>p</sub></sub>}$$
+For each target paper $$p \in \prod_{train}$$, there is the set of referenced papers by $$p$$, R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,M<sub>p</sub></sub>}, 
 metadata for its references is also retrieved from Semantic Scholar. This metadata includes the 'publication year,' 'authors' names,' 'title,' and 'abstract.' The literature review sections of the target papers serve as the benchmark. Both the references' metadata (title and abstract) and the target papers' literature reviews are incorporated into the fine-tuning dataset.
 
 # Fine-tuning 
