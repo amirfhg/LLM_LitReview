@@ -25,6 +25,8 @@ For each paper in $$\prod_{train}$$, training example consists of the following 
 3. The target paper's research question.
 4. Metadata of the target paper's references.
 
+Below is the example of each entry for fine-tuning: 
+
 The preparation of training data and its strucure can be found in 'prepare_finetuning_dataset.py' in this repository.
 
 # Evaluation Strategy
