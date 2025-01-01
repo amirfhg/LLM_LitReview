@@ -1,5 +1,5 @@
 # Objective
-This project focuses on fine-tuning OpenAI's foundation models to enhance their ability to craft professional academic literature reviews. Our primary emphasis is on research papers within the social sciences, particularly in economics and finance.
+This project aims to improve frontier models' performance to craft professional academic literature reviews. Our primary emphasis is on research papers within the social sciences, particularly in economics and finance.
 
 # Data Collection
 A curated training sample of target papers is collected from Semantic Scholar. These papers are carefully selected to ensure they are published in high-quality journals, such as QJE, JF, and JFE.
@@ -14,7 +14,9 @@ Each training example consists of the following components:
 3. The target paper's research question.
 4. Metadata of the target paper's references.
 
-Hundreds of such training examples are compiled and used to fine-tune GPT-4/4o.
+$$\Alpha_{test}$$
+
+
 # Evaluation Strategy
 We must develop and rely on a set of evaluation benchmarks to track the progress we make in improving foundation models' capabilities to generate academic literature reviews. Accordingly after each iteration of fine-tuning, we use our model to generate literature reviews for out-of-sample papers. These papers are published after the papers in the training sample but belong to the same journals. 
 
