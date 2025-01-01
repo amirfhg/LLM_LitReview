@@ -8,7 +8,7 @@ For each target paper $$p \in \prod_{train}$$, there is the set of referenced pa
 
 The metadata for references is retrieved from Semantic Scholar. This metadata includes the 'publication year,' 'authors' names,' 'title,' and 'abstract.' The literature review sections of the target papers serve as the benchmark. Both the references' metadata (title and abstract) and the target papers' literature reviews are incorporated into the fine-tuning dataset.
 
-The code to collect the metadata for target papers can be found in in this repository.
+The code to collect the metadata for target papers can be found in 'semantic_scholar_references.py' in this repository.
 
 # Fine-tuning 
 For each paper in $$\prod_{train}$$, training example consists of the following components:
@@ -18,7 +18,7 @@ For each paper in $$\prod_{train}$$, training example consists of the following 
 3. The target paper's research question.
 4. Metadata of the target paper's references.
 
-The preparation of training data for fine-tuning can be found in in this repository.
+The preparation of training data for fine-tuning can be found in 'prepare_finetuning_dataset.py' in this repository.
 
 # Evaluation Strategy
 We use another set of papers $$\prod_{train}$$, published after 2020 to test our model's performance. We must develop and rely on a set of evaluation benchmarks to track the progress we make in improving foundation models' capabilities to generate academic literature reviews. Accordingly after each iteration of fine-tuning, we use our model to generate literature reviews for out-of-sample papers. These papers are published after the papers in the training sample but belong to the same journals. 
