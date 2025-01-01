@@ -22,4 +22,4 @@ We evaluate our model's output against those of foundation models (gpt4o) and ac
 
 We also develop our evaluation strategy based on the notion that an ideal literature review should find gaps in the literature. Thus we expect our model to read a set of select papers given as input, identify gaps in the literature, and propose a set of research questions to expand on the current literature. Ultimately, our evaluation strategy aims to generate a set of research questions that converge to those proposed by the out-of-sample papers written by actual academics. 
 
-# Other Approaches to Improve Model Performance
+# Further Improvements
