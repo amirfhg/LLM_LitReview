@@ -24,7 +24,7 @@ For each paper in $$\prod_{train}$$, training example consists of the following 
 3. The target paper's research question.
 4. Metadata of the target paper's references.
 
-The preparation of training data and the structure of each observation for fine-tuning can be found in 'prepare_finetuning_dataset.py' in this repository.
+The preparation of training data and its strucure can be found in 'prepare_finetuning_dataset.py' in this repository.
 
 # Evaluation Strategy
 We must develop and rely on a set of evaluation benchmarks to track the progress we make in improving foundation models' capabilities to generate academic literature reviews. 
