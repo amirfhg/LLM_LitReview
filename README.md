@@ -55,8 +55,10 @@ RQSim Benchmark
 
 This is a benchmark we devlop based on the notion that an ideal literature review should find gaps in the literature. Thus we expect our model to read a set of select papers given as input, identify gaps in the literature, and propose a set of research questions to expand on the current literature. Ultimately, our evaluation strategy aims to generate a set of research questions that converge to those proposed by the out-of-sample papers written by actual academics. 
 
-For each $$p \in \prod_{test}$$, based on R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,N<sub>p</sub></sub>}, we instruct the fine-tuned model to generate a set of potetial research questions:
+For each paper $$p \in \prod_{test}$$, based on R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,N<sub>p</sub></sub>}, we instruct the fine-tuned model to generate a set of potetial research questions:
 
 Q<sub>p</sub> = {q<sub>p,1</sub>, q<sub>p,2</sub>, …, q<sub>p,n<sub>p</sub></sub>}  
+
+The research question in paper $$p \in \prod_{test}$$ is $$RQ_{p}$$. 
 
 # Further Improvements
