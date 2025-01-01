@@ -61,10 +61,10 @@ Q<sub>p</sub> = {q<sub>p,1</sub>, q<sub>p,2</sub>, …, q<sub>p,n<sub>p</sub></s
 
 The actual research question in paper $$p \in \prod_{test}$$ is $$RQ_{p}$$. We then use an embedding model to embedd $$RQ_{p}$$ and {q<sub>p,1</sub>, q<sub>p,2</sub>, …, q<sub>p,n<sub>p</sub></sub>}.
 
-Next, we calculate the average cosine similarity between generated research questions in $$\vec{Q_{p}}$$ and $$\vec{RQ_{p}}$$:
+Next, we calculate the average cosine similarity between the vector embeddings of generated research questions in $$Q_{p}$$ and the vector embedding of $$RQ_{p}$$, $$\vec{RQ_{p}}$$:
 
 $$\[
-S(p) = \frac{1}{n_p} \sum_{i=1}^{n_p} \text{Cosine}(q_{p,i}, RQ_p)
+S(p) = \frac{1}{n_p} \sum_{i=1}^{n_p} \text{Cosine}(q_{p,i}, \vec{RQ_{p}})
 \]$$
 
 
