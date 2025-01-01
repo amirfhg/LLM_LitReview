@@ -1,4 +1,5 @@
 Objective
+
 This project aims to improve frontier models' performance to craft professional academic literature reviews. Our primary emphasis is on research papers within the social sciences, particularly in economics and finance.
 
 Data Collection
