@@ -14,7 +14,7 @@ Each training example consists of the following components:
 3. The target paper's research question.
 4. Metadata of the target paper's references.
 
-$$\Alpha_{test}$$
+$$\alpha_{test}$$
 
 
 # Evaluation Strategy
