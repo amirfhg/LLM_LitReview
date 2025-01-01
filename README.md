@@ -20,14 +20,13 @@ For each paper in $$\prod_{train}$$, training example consists of the following 
 3. The target paper's research question.
 4. Metadata of the target paper's references.
 
-The preparation of training data for fine-tuning can be found in 'prepare_finetuning_dataset.py' in this repository.
+The preparation of training data and the structure of each observation for fine-tuning can be found in 'prepare_finetuning_dataset.py' in this repository.
 
 # Evaluation Strategy
-We use another set of papers $$\prod_{train}$$, published after 2020 to test our model's performance. We must develop and rely on a set of evaluation benchmarks to track the progress we make in improving foundation models' capabilities to generate academic literature reviews. Accordingly after each iteration of fine-tuning, we use our model to generate literature reviews for out-of-sample papers. These papers are published after the papers in the training sample but belong to the same journals. 
+We must develop and rely on a set of evaluation benchmarks to track the progress we make in improving foundation models' capabilities to generate academic literature reviews. 
+To do so after each iteration of fine-tuning, we use our model to generate literature reviews for out-of-sample papers. We evaluate our model's output against those of foundation models (gpt4o) and actual professional academic literature reviews across multiple dimensions, including Coherence, Consistency, Fluency, and Relevance. 
 
-We evaluate our model's output against those of foundation models (gpt4o) and actual professional academic literature reviews across multiple dimensions, including Coherence, Consistency, Fluency, and Relevance. 
-
-We also develop our evaluation strategy based on the notion that an ideal literature review should find gaps in the literature. Thus we expect our model to read a set of select papers given as input, identify gaps in the literature, and propose a set of research questions to expand on the current literature. Ultimately, our evaluation strategy aims to generate a set of research questions that converge to those proposed by the out-of-sample papers written by actual academics. 
+We also develop our own evaluation strategy based on the notion that an ideal literature review should find gaps in the literature. Thus we expect our model to read a set of select papers given as input, identify gaps in the literature, and propose a set of research questions to expand on the current literature. Ultimately, our evaluation strategy aims to generate a set of research questions that converge to those proposed by the out-of-sample papers written by actual academics. 
 
 $$p \in \prod_{test}$$ 
 
