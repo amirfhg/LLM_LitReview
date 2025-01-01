@@ -1,8 +1,8 @@
-Objective
+# Objective
 
 This project aims to improve frontier models' performance to craft professional academic literature reviews. Our primary emphasis is on research papers within the social sciences, particularly in economics and finance.
 
-Data Collection
+# Data Collection
 
 A curated training sample of target papers $$\prod_{train}$$ is collected from Semantic Scholar. These papers are carefully selected to ensure they are published in high-quality journals, such as QJE, JF, and JFE. All papers in $$\prod_{train}$$ are published before 2020. We also collect a set of out-of-sample papers $$\prod_{test}$$ to evaluate model performance. These are the papers published after 2020. 
 
@@ -18,7 +18,7 @@ Similarly during the evaluation stage for each out of sample paper $$p$$, $$R_{p
 
 The code to collect the metadata for target papers can be found in 'semantic_scholar_references.py' in this repository.
 
-Fine-tuning 
+# Fine-tuning 
 
 For each paper in $$\prod_{train}$$, training example consists of the following components:
 
@@ -46,7 +46,7 @@ Below is the example of each entry for fine-tuning:
 
 The preparation of training data and its strucure can be found in 'prepare_finetuning_dataset.py' in this repository.
 
-Evaluation Strategy
+# Evaluation Strategy
 
 We must develop and rely on a set of evaluation benchmarks to track the progress we make in improving foundation models' capabilities to generate academic literature reviews. 
 To do so after each iteration of fine-tuning, we use our model to generate literature reviews for out-of-sample papers. We evaluate our model's output against those of foundation models (gpt4o) and actual professional academic literature reviews across multiple dimensions, including Coherence, Consistency, Fluency, and Relevance. 
@@ -55,4 +55,4 @@ We also develop our own evaluation strategy based on the notion that an ideal li
 
 $$p \in \prod_{test}$$ 
 
-Further Improvements
+# Further Improvements
