@@ -4,8 +4,9 @@ This project aims to improve frontier models' performance to craft professional 
 # Data Collection
 A curated training sample of target papers $$\prod_{train}$$ is collected from Semantic Scholar. These papers are carefully selected to ensure they are published in high-quality journals, such as QJE, JF, and JFE.
 
-For each target paper $$p \in \prod_{train}$$, there is the set of referenced papers by $$p$$, R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,M<sub>p</sub></sub>}, 
-metadata for its references is also retrieved from Semantic Scholar. This metadata includes the 'publication year,' 'authors' names,' 'title,' and 'abstract.' The literature review sections of the target papers serve as the benchmark. Both the references' metadata (title and abstract) and the target papers' literature reviews are incorporated into the fine-tuning dataset.
+For each target paper $$p \in \prod_{train}$$, there is the set of referenced papers by $$p$$, R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,N<sub>p</sub></sub>}, $$N_{p}$$ being the number of papers referenced by $$p$$.
+
+The metadata for references is retrieved from Semantic Scholar. This metadata includes the 'publication year,' 'authors' names,' 'title,' and 'abstract.' The literature review sections of the target papers serve as the benchmark. Both the references' metadata (title and abstract) and the target papers' literature reviews are incorporated into the fine-tuning dataset.
 
 # Fine-tuning 
 $$\prod_{train}$$ is the set of papers used for fine-tuning. All of the papers in $$\prod_{train}$$ are published before 2020. For each paper in $$\prod_{train}$$, training example consists of the following components:
