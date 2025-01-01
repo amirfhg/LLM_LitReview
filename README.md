@@ -59,12 +59,12 @@ For each paper $$p \in \prod_{test}$$, based on R<sub>p</sub> = {r<sub>p,1</sub>
 
 Q<sub>p</sub> = {q<sub>p,1</sub>, q<sub>p,2</sub>, …, q<sub>p,n<sub>p</sub></sub>}  
 
-The actual research question in paper $$p \in \prod_{test}$$ is $$RQ_{p}$$. 
+The actual research question in paper $$p \in \prod_{test}$$ is $$RQ_{p}$$. We then use an embedding model to embedd $$RQ_{p}$$ and {q<sub>p,1</sub>, q<sub>p,2</sub>, …, q<sub>p,n<sub>p</sub></sub>}.
 
-Next, we calculate the following for each $$p \in \prod_{test}$:
+Next, we calculate the following for each $$p \in \prod_{test}$$:
 
 $$\[
-S(p) = \frac{1}{M_p} \sum_{i=1}^{M_p} \text{sim}(q_{p,i}, RQ_p)
+S(p) = \frac{1}{M_p} \sum_{i=1}^{M_p} \text{Cosine}(q_{p,i}, RQ_p)
 \]$$
 
 
