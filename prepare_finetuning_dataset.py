@@ -141,7 +141,7 @@ data = []
 
 # Iterate through your observations to construct the dataset
 for i in range(len(intros)):
-    instruction_prompt = f"""The following is a list of paper metadata separated by ||.
+    instruction_prompt = f"""The following is a list of paper metadata separated by '|'.
      Each element in the list includes: title, abstract, author names, publication year.
      The items in this list are the papers referenced by the target paper. list of paper metadata = {metadata_list[i]}.
      The following is the research question from the target paper. research question = '{research_q_list[i]}'.
