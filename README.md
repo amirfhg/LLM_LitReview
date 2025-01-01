@@ -3,11 +3,7 @@ This project aims to improve frontier models' performance to craft professional 
 
 # Data Collection
 
-A curated training sample of target papers $$\prod_{train}$$ is collected from Semantic Scholar.
-
-These papers are carefully selected to ensure they are published in high-quality journals, such as QJE, JF, and JFE. All papers in $$\prod_{train}$$ are published before 2020.
-
-We also collect a set of out-of-sample papers $$\prod_{test}$$ to evaluate model performance. These are the papers published after 2020. 
+A curated training sample of target papers $$\prod_{train}$$ is collected from Semantic Scholar. These papers are carefully selected to ensure they are published in high-quality journals, such as QJE, JF, and JFE. All papers in $$\prod_{train}$$ are published before 2020. We also collect a set of out-of-sample papers $$\prod_{test}$$ to evaluate model performance. These are the papers published after 2020. 
 
 For each target paper $$p \in {\prod_{train}, \prod_{test}}$$, there is the set of referenced papers by $$p$$, R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,N<sub>p</sub></sub>}, $$N_{p}$$ being the number of papers referenced by $$p$$. The papers in $$R_{p}$$ are important as they are used both during the fine-tuning and evaluation stage. 
 
