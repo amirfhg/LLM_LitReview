@@ -63,9 +63,9 @@ The actual research question in paper $$p \in \prod_{test}$$ is $$RQ_{p}$$.
 
 Next, we calculate the following for each $$p \in \prod_{test}$:
 
-\[
+$$\[
 S(p) = \frac{1}{M_p} \sum_{i=1}^{M_p} \text{sim}(q_{p,i}, RQ_p)
-\]
+\]$$
 
 
 
