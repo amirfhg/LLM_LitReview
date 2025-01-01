@@ -59,6 +59,8 @@ For each paper $$p \in \prod_{test}$$, based on R<sub>p</sub> = {r<sub>p,1</sub>
 
 Q<sub>p</sub> = {q<sub>p,1</sub>, q<sub>p,2</sub>, …, q<sub>p,n<sub>p</sub></sub>}  
 
-The research question in paper $$p \in \prod_{test}$$ is $$RQ_{p}$$. 
+The actual research question in paper $$p \in \prod_{test}$$ is $$RQ_{p}$$. 
+
+$$S(p) = (1 / M_p) * Σ (from i = 1 to M_p) [ sim(q_{p,i}, RQ_p) ]$$
 
 # Further Improvements
