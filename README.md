@@ -1,6 +1,7 @@
 # Objective
 
 This project aims to improve frontier models' performance to craft professional academic literature reviews. Our primary emphasis is on research papers within the social sciences, particularly in economics and finance.
+We first use fine-tuning as a warm-up supervised exercise. We then continue training the model under a reinforcement learning (RL) framework by creating a reward signal, guiding the model to perform more effective literature review.  
 
 # Data Collection
 
@@ -70,4 +71,5 @@ S(p) = \frac{1}{n_p} \sum_{i=1}^{n_p} \text{Cosine}(\vec{q_{p,i}}, \vec{RQ_{p}})
 As discussed higher the values of $$S(p)$$ indicate model's ability to perform literature review on a given set of papers in $$\prod_{test}$$, identify gaps, and suggest research questions to address them. The average values of $$S(p)$$ across the papers in $$\prod_{test}$$ is then used to compare the performance of the fine-tuned model in each iteration with its past iterations and other models (e.g. NotebookLM, o1, gpt-4o). 
 
 
-# Further Improvements
+# Reinforcement Learning 
+
