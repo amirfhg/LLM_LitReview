@@ -68,7 +68,7 @@ $$\[
 S(p) = \frac{1}{n_p} \sum_{i=1}^{n_p} \text{Cosine}(\vec{q_{p,i}}, \vec{RQ_{p}})
 \]$$
 
-As discussed higher the values of $$S(p)$$ indicate model's ability to perform literature review on a given set of papers in $$\prod_{test}$$, identify gaps, and suggest research questions to address them. The average values of $$S(p)$$ across the papers in $$\prod_{test}$$ is then used to compare the performance of the fine-tuned model in each iteration with its past iterations and other models (e.g. NotebookLM, o1, gpt-4o). 
+As discussed higher the values of $$S(p)$$ indicate model's ability to perform literature review on a given set of papers in $$\prod_{test}$$, identify gaps, and suggest research questions to address them. The average values of $$S(p)$$ across the papers in $$\prod_{test}$$ is RQSim. This metric is used to compare the performance of the fine-tuned model in each iteration with its past iterations and other models (e.g. NotebookLM, o1, gpt-4o). 
 
 
 # Reinforcement Learning 
@@ -78,7 +78,7 @@ $$\[
 R = \alpha \cdot \text{RQSim} - \beta \cdot \text{IrrelevancePenalty}
 \]$$
 
-where $$\alpha$$ and $$\beta$$ are tunable hyperparameters. Irrelevance penalty is the following:
+where $$\alpha$$ and $$\beta$$ are tunable hyperparameters. Irrelevance penalty is average of the following over out-of-sample papers, at each step of RL:
 
 $$\[
 \text{Penalty}(q_{p,i}) = 1 - \text{Cosine}(\vec{q_{p,i}}, \vec{Ref_{p}})
