@@ -60,7 +60,7 @@ For each paper $$p \in \prod_{test}$$, based on R<sub>p</sub> = {r<sub>p,1</sub>
 
 Q<sub>p</sub> = {q<sub>p,1</sub>, q<sub>p,2</sub>, …, q<sub>p,n<sub>p</sub></sub>}  
 
-The actual research question in paper $$p \in \prod_{test}$$ is $$RQ_{p}$$. We then use an embedding model to embedd $$RQ_{p}$$ and {q<sub>p,1</sub>, q<sub>p,2</sub>, …, q<sub>p,n<sub>p</sub></sub>}.
+The actual research question in paper $$p \in \prod_{test}$$ is $$RQ_{p}$$. We then use Sentence-Embedding (SBERT) to embedd $$RQ_{p}$$ and {q<sub>p,1</sub>, q<sub>p,2</sub>, …, q<sub>p,n<sub>p</sub></sub>}.
 
 Next, we calculate the average cosine similarity between the vector embeddings of generated research questions in $$Q_{p}$$ and the vector embedding of $$RQ_{p}$$:
 
@@ -72,4 +72,4 @@ As discussed higher the values of $$S(p)$$ indicate model's ability to perform l
 
 
 # Reinforcement Learning 
-RQSim 
+RQSim metric can also be used as a reward signal for the model to evaluate its own performance. 
