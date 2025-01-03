@@ -84,7 +84,7 @@ $$\[
 \text{Penalty}(p) = \frac{1}{n_p} \sum_{i=1}^{n_p} 1 - \text{Cosine}(\vec{q_{p,i}}, \vec{Ref_{p}})
 \]$$
 
-where $$Ref_{p}$$ is a single embedding of all the abstracts in R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,N<sub>p</sub></sub>}$. This ensures that the model does not deviate away from the context of input papers. 
+where $$\vec{Ref_{p}}$$ is a single embedding of all the abstracts in R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,N<sub>p</sub></sub>}$. This ensures that the model does not deviate away from the context of input papers. 
 
 
 
