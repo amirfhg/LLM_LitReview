@@ -72,4 +72,12 @@ As discussed higher the values of $$S(p)$$ indicate model's ability to perform l
 
 
 # Reinforcement Learning 
-RQSim metric can also be used as a reward signal for the model to evaluate its own performance. 
+RQSim metric can also be used as a reward signal for the model to evaluate its own performance. Following a typical proximal policy optimization (PPO) method we define the following as the reward function:
+
+$$\[
+R = \alpha \cdot \text{RQSim} - \beta \cdot \text{IrrelevancePenalty}
+\]$$
+
+where $$\alpha$$ and $$\beta$$ are tunable hyperparameters. 
+
+
