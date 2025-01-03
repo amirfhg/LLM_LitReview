@@ -1,6 +1,7 @@
 # Objective
 
 This project aims to improve frontier models' performance to craft professional academic literature reviews. Our primary emphasis is on research papers within the social sciences, particularly in economics and finance.
+
 We first use fine-tuning as a warm-up supervised exercise. We then continue training the model under a reinforcement learning (RL) framework by creating a reward signal, guiding the model to perform more effective literature review.  
 
 # Data Collection
