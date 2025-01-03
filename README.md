@@ -69,7 +69,7 @@ $$\[
 S(p) = \frac{1}{n_p} \sum_{i=1}^{n_p} \text{Cosine}(\vec{q_{p,i}}, \vec{RQ_{p}})
 \]$$
 
-As discussed higher the values of $$S(p)$$ indicate model's ability to perform literature review on a given set of papers in $$\prod_{test}$$, identify gaps, and suggest research questions to address them. The average values of $$S(p)$$ across the papers in $$\prod_{test}$$ is RQSim. This metric is used to compare the performance of the fine-tuned model in each iteration with its past iterations and other models (e.g. NotebookLM, o1, gpt-4o). 
+As discussed higher values of $$S(p)$$ indicates that model's generated research questions semantically converge to the ones proposed by professional academics in the same literature. The average values of $$S(p)$$ across the papers in $$\prod_{test}$$ is RQSim. This metric is used to compare the performance of the fine-tuned model in each iteration with its past iterations and other models (e.g. NotebookLM, o1, gpt-4o). 
 
 
 # Reinforcement Learning (not implemented yet)
