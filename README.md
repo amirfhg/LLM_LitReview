@@ -72,7 +72,7 @@ S(p) = \frac{1}{n_p} \sum_{i=1}^{n_p} \text{Cosine}(\vec{q_{p,i}}, \vec{RQ_{p}})
 As discussed higher the values of $$S(p)$$ indicate model's ability to perform literature review on a given set of papers in $$\prod_{test}$$, identify gaps, and suggest research questions to address them. The average values of $$S(p)$$ across the papers in $$\prod_{test}$$ is RQSim. This metric is used to compare the performance of the fine-tuned model in each iteration with its past iterations and other models (e.g. NotebookLM, o1, gpt-4o). 
 
 
-# Reinforcement Learning 
+# Reinforcement Learning (not implemented yet)
 RQSim metric can also be used as a reward signal for the model to evaluate its own performance. At each RL step we sample from a subset of $$\prod_{test}$$ (a different, much larger set of papers than the one used in fine-tuning stage), generate literature review using the fine-tuned model, calculate RQSim. Following a typical proximal policy optimization (PPO) method we calculate the following as the reward function at each step of RL:
 
 $$\[
@@ -86,6 +86,8 @@ $$\[
 \]$$
 
 where $$\vec{Ref_{p}}$$ is a single embedding of all the abstracts in R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,N<sub>p</sub></sub>}$. This ensures that the model does not deviate from the overall context of input papers. 
+
+
 
 
 
