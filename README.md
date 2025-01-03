@@ -84,7 +84,7 @@ $$\[
 \text{Penalty}(q_{p,i}) = 1 - \text{Cosine}(\vec{q_{p,i}}, \vec{Ref_{p}})
 \]$$
 
-where $$Ref_{p}$$ is a single embedding of the abstracts of referenced papers for paper $$p$$.
+where $$Ref_{p}$$ is a single embedding of all the abstracts in R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,N<sub>p</sub></sub>}$. This ensures that the model does not deviate away from the context of input papers. 
 
 
 
