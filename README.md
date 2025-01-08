@@ -55,7 +55,7 @@ To do so after each iteration of fine-tuning, we use our model to generate liter
 
 ***RQSim Benchmark***
 
-We also developed our benchmark, RQSim, based on the notion that performing a literature review should ideally lead to identifying gaps in the literature and suggest research questions to address them. Thus we expect our model to identify gaps in the literature by reading out-of-sample papers, and propose a set of research questions comparable to those suggested by professional academics. 
+We also developed our benchmark, RQSim, based on the notion that the goal of literature review in academic papers is to identify gaps in the literature and suggest research questions to address those gaps. Therefore we measure the performance of our model based on its ability to identify gaps in the literature by reading papers in $$R_{p}$$ and propose a set of research questions similar to those suggested in the target paper $$p$$. 
 
 For each paper $$p \in \prod_{test}$$, based on R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,N<sub>p</sub></sub>}, we instruct the fine-tuned model to generate a set of potetial research questions:
 
