@@ -2,21 +2,21 @@
 
 This project aims to improve frontier models' performance to craft professional academic literature reviews. Our primary emphasis is on research papers within the social sciences, particularly in economics and finance.
 
-We first use fine-tuning as a warm-up supervised exercise. We then continue training the model under a reinforcement learning (RL) framework by creating a reward signal, guiding the model to perform more effective literature review.  
+We first use fine-tuning as a warm-up supervised exercise. We then continue training the model under a reinforcement learning (RL) framework by creating a reward signal, guiding the model to perform a more effective literature review.  
 
 # Data Collection
 
 A curated training sample of target papers $$\prod_{train}$$ is collected from Semantic Scholar. These papers are carefully selected to ensure they are published in high-quality journals, such as QJE, JF, and JFE. All papers in $$\prod_{train}$$ are published before 2020. We also collect a set of out-of-sample papers $$\prod_{test}$$ to evaluate model performance. These are the papers published after 2020. 
 
-For each target paper $$p \in {\prod_{train}, \prod_{test}}$$, there is the set of referenced papers by $$p$$:
+For each target paper $$p \in {\prod_{train}, \prod_{test}}$$, there is the set of papers referenced by $$p$$:
 
 R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,N<sub>p</sub></sub>}
 
-The papers in $$R_{p}$$ are important as they are used both during the fine-tuning and evaluation stage. 
+The papers in $$R_{p}$$ are important as they are used both during the fine-tuning and evaluation stages. 
 
-For the fine-tuning stage these papers along with the literature review of the target paper $$p$$ are used to train the model. During the fine-tuning the model learns on how to read a set of papers (referenced papers by $$p$$) and write a literature review similar to the actual one in $$p$$. At this point, we do not use the entirity of referenced papers to fine-tune our model. Instead only rely on the metadata of the referenced papers. The metadata for papers in $$R_{p}$$ is retrieved from Semantic Scholar. This metadata includes the 'publication year,' 'authors' names,' 'title,' and 'abstract.' 
+For the fine-tuning stage, these papers together with the literature review of the target paper $$p$$ are used to train the model. During the fine-tuning, the model learns to write a literature review similar to the one in the target paper, $$p$$ based on the input papers in $$R_{p}$$. At this point, we do not use the full content of the referenced papers to fine-tune our model. Instead only rely on the metadata of the referenced papers. The metadata for papers in $$R_{p}$$ is retrieved from Semantic Scholar. This metadata includes the 'publication year,' 'authors' names,' 'title,' and 'abstract.' 
 
-Similarly during the evaluation stage for each out of sample paper $$p$$, $$R_{p}$$ is given to the fine-tuned model and is asked to generate a literature review which is then evaluated against the one in $$p$$. 
+Similarly during the evaluation stage for each out-of-sample paper $$p$$, $$R_{p}$$ is given to the fine-tuned model and is asked to generate a literature review which is then evaluated against the one in $$p$$. 
 
 The code to collect the metadata for target papers can be found in 'semantic_scholar_references.py' in this repository.
 
