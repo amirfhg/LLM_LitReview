@@ -184,8 +184,27 @@ with open(fine_tune_file, 'w') as f:
 print(f"Fine-tuning dataset saved to {fine_tune_file}")
 
 
+############################################################################
+# Count number of token per observation for fine-tuning to estimate fine-tuning costs
 
+import tiktoken
+tokenizer = tiktoken.get_encoding("cl100k_base")
 
+with open("./fine_tune_data.jsonl", 'r') as file:
+        for index, line in enumerate(file):
+            # Parse each line as a JSON object
+            element = json.loads(line)
 
+            # Combine the prompt and completion for token counting
+            combined_text = element.get("prompt", "") + " " + element.get("completion", "")
+
+            # Count the number of tokens
+            token_count = len(tokenizer.encode(combined_text))
+
+            # Print the element and its token count
+            print(f"Element {index + 1}:")
+            print(json.dumps(element, indent=4))
+            print(f"Token Count: {token_count}")
+            print("\n" + "="*50 + "\n")   
 
 
