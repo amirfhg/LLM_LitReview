@@ -60,10 +60,12 @@ def extract_text_from_pages(file_path):
         print(f"Error processing {file_path}: {e}")
         return ""
 
-intros = []
-for pdf in target_papers[0:1]:
-    intro_text = extract_text_from_pages(pdf)
-    intros.append(intro_text)
+intros = {}  # Use a dictionary instead of a list
+for pdf in target_papers:  # Iterate through all items in target_papers
+    intro_text = extract_text_from_pages(pdf)  # Extract text from the PDF
+    intros[pdf] = intro_text  # Use the PDF name as the key and the extracted text as the value
+
+intros = {key: value for key, value in intros.items() if value}
     
 
 
@@ -78,7 +80,7 @@ from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 llm = ChatOpenAI(model="gpt-4o", api_key="?", temperature = 0)
 
-research_q_list = []
+research_q_dict = {} 
 
 template = """Use the following pieces of context to answer the question at the end.
         Do not give information not mentioned in the context information.
@@ -96,40 +98,55 @@ chain = LLMChain(prompt=prompt, llm=llm, output_parser=StrOutputParser())
 
 query = "What is the main research question discussed in the context? Formulate your response in a research question form."
 
-# Iterate through elements of intros
-for intro in intros:
-    context_str = str(intro)
+# Iterate through items of intros to preserve keys
+for key, intro_text in intros.items():  # Use both keys and values from intros
+    context_str = str(intro_text)  # Use the value (intro text) as the context
     # Use the 'predict' method for multiple input variables
     research_q = chain.predict(context=context_str, question=query)
-    research_q_list.append(research_q)
-
+    research_q_dict[key] = research_q  # Store the result in the dictionary with the corresponding key
 #################################################
 # 3. Metadata for Referenced Papers by Target Paper
 
 # Here we load the metadata collected from Semantic Scholar into a single string for each target paper
 
 import pandas as pd
-target_papers_references = [paper.replace('.pdf', '.csv') for paper in target_papers]
-metadata_list = []
 
-for reference in target_papers_references:
-    # Load the CSV file
-    df = pd.read_csv(reference)
+# Initialize metadata_dict to store the original key and metadata string
+metadata_dict = {}
 
-    # Replace NaN in 'publicationYear' with '?'
-    df['publicationYear'] = df['publicationYear'].fillna('?')
+# Process each key in the intros dictionary
+for key in intros.keys():  # Only iterate through the keys
+    # Generate the corresponding .csv file name
+    csv_file = key.replace('.pdf', '.csv')
 
-    # Remove '[' and ']' from 'authors'
-    df['authors'] = df['authors'].str.replace(r'\[', '', regex=True).str.replace(r'\]', '', regex=True)
+    try:
+        # Load the .csv file into a DataFrame
+        df = pd.read_csv(csv_file)
 
-    # Create the metadata string for the current file
-    metadata_string = '||'.join(
-        f"title:'{row['title']}'. abstract:'{row['abstract']}'. authors:'{row['authors']}'. pubyear:'{row['publicationYear']}'"
-        for _, row in df.iterrows()
-    )
+        # Handle NaN values in 'publicationYear' column
+        if 'publicationYear' in df.columns:
+            df['publicationYear'] = df['publicationYear'].fillna('?')
 
-    # Append the metadata string to the list
-    metadata_list.append(metadata_string)
+        # Clean up the 'authors' column by removing '[' and ']' if it exists
+        if 'authors' in df.columns:
+            df['authors'] = df['authors'].str.replace(r'\[', '', regex=True).str.replace(r'\]', '', regex=True)
+
+        # Create the metadata string for the current file
+        metadata_string = '|'.join(
+            f"title:'{row['title']}'. abstract:'{row['abstract']}'. authors:'{row['authors']}'. pubyear:'{row['publicationYear']}'"
+            for _, row in df.iterrows()
+        )
+
+        # Store the original .pdf key and metadata string in the dictionary
+        metadata_dict[key] = metadata_string
+
+    except FileNotFoundError:
+        print(f"CSV file {csv_file} not found.")
+    except Exception as e:
+        print(f"An error occurred while processing {csv_file}: {e}")
+
+# Output or save the metadata_dict as needed
+print(metadata_dict)
 
 ################################################################
 # 4. Define Instruction Prompt and Save the whole Dataset as .json 
@@ -139,23 +156,36 @@ import json
 
 data = []
 
-# Iterate through your observations to construct the dataset
-for i in range(len(intros)):
+# Iterate through the keys in intros
+for key in intros.keys():
+    # Construct the instruction_prompt using values from the dictionaries
     instruction_prompt = f"""The following is a list of paper metadata separated by '|'.
-     Each element in the list includes: title, abstract, author names, publication year.
-     The items in this list are the papers referenced by the target paper. list of paper metadata = {metadata_list[i]}.
-     The following is the research question from the target paper. research question = '{research_q_list[i]}'.
-     Using abstract of papers content in the list of paper metadata, and considering the research question, learn to write a the target paper's literature review.
-     Remember target paper's literature review may contain material that are not directly or indirectly related to the content in the list of paper metadata. Ignore those parts in target paper's literature review.
-     The following is target paper's literature review:"""
-    target_paper_litreview = intros[i]
-    data.append({"prompt": instruction_prompt, "completion": completion})
+    Each element in the list includes: title, abstract, author names, publication year.
+    The items in this list are the papers referenced by the target paper. list of paper metadata = {metadata_dict[key]}.
+    The following is the research question from the target paper. research question = '{research_q_dict[key]}'.
+    Using abstract of papers content in the list of paper metadata, and considering the research question, learn to write the target paper's literature review.
+    Remember target paper's literature review may contain material that are not directly or indirectly related to the content in the list of paper metadata. Ignore those parts in the target paper's literature review.
+    The following is the target paper's literature review:"""
+    # Retrieve the corresponding literature review
+    target_paper_litreview = intros[key]
+    
+    # Add the entry to the data list
+    data.append({
+        "prompt": instruction_prompt,
+        "completion": target_paper_litreview
+    })
 
-
-# Step 2: Save dataset to a JSONL file (required format for fine-tuning)
+# Step 2: Save the dataset to a JSONL file (required format for fine-tuning)
 fine_tune_file = "./fine_tune_data.jsonl"
 with open(fine_tune_file, 'w') as f:
     for item in data:
         f.write(json.dumps(item) + "\n")
 
 print(f"Fine-tuning dataset saved to {fine_tune_file}")
+
+
+
+
+
+
+
