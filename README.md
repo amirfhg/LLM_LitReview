@@ -46,7 +46,7 @@ Below is the example of each entry for fine-tuning:
     
 
 
-The preparation of training data and its strucure can be found in 'prepare_finetuning_dataset.py' in this repository.
+The preparation of training data and its structure can be found in 'prepare_finetuning_dataset.py' in this repository.
 
 # Evaluation Strategy
 
@@ -55,9 +55,9 @@ To do so after each iteration of fine-tuning, we use our model to generate liter
 
 ***RQSim Benchmark***
 
-We also developed our benchmark, RQSim, based on the notion that the goal of literature review in academic papers is to identify gaps in the literature and suggest research questions to address those gaps. Therefore we measure the performance of our model based on its ability to identify gaps in the literature by reading papers in $$R_{p}$$ and propose a set of research questions similar to those suggested in the target paper $$p$$. 
+We developed an evaluation benchmark, RQSim, to gauge a model’s ability to identify gaps in academic literature and propose research questions that address those gaps. In our view, formulating the right research question is pivotal for writing a high-quality literature review. This is because a well-defined research question guides researchers in selecting and synthesizing relevant concepts and findings from the literature, ultimately shaping the structure and narrative of the review. Based on this notion, the core function of a literature review is to justify the paper's research question by presenting gaps in the literature. This means a model's ability to identify gaps and propose research questions is a predictor of its ability to synthesize quality literature reviews. Therefore, we measure the performance of our model based on its ability to identify gaps in the literature by reading papers in $$R_{p}$$ and propose a set of research questions similar to those suggested in the target paper $$p$$. 
 
-For each paper $$p \in \prod_{test}$$, based on R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,N<sub>p</sub></sub>}, we instruct the fine-tuned model to generate a set of potetial research questions:
+For each paper $$p \in \prod_{test}$$, based on R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,N<sub>p</sub></sub>}, we instruct the fine-tuned model to generate a set of potential research questions:
 
 Q<sub>p</sub> = {q<sub>p,1</sub>, q<sub>p,2</sub>, …, q<sub>p,n<sub>p</sub></sub>}  
 
