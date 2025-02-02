@@ -54,12 +54,13 @@ RQSim(p) = \frac{1}{n_p} \sum_{i=1}^{n_p} \text{Cosine}(\vec{q_{p,i}}, \vec{RQ_{
 As discussed higher values of $$RQSim(p)$$ indicates that model's generated research questions semantically converge to the ones proposed by professional academics in the same literature. The values of $$RQSim(p)$$ across the papers in $$\prod_{test}$$ reflect the model's performance in reading academic papers and suggesting research questions. Below are $$RQSim(p)$$ calculated for out-of-sample papers from $$\prod_{test}$$ across various frontier models, including our fine-tuned model based on gpt-4o.
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/87a283e5-4e49-40b8-8b48-a58fe6388a55" alt="plot1">
+  <img src="https://github.com/user-attachments/assets/87a283e5-4e49-40b8-8b48-a58fe6388a55" alt="plot1" width="500">
 </div>
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/3fbbaede-2941-47c8-aaef-c3c81f22308e" alt="boxplot">
+  <img src="https://github.com/user-attachments/assets/3fbbaede-2941-47c8-aaef-c3c81f22308e" alt="boxplot" width="500">
 </div>
+
 
 # Reinforcement Learning 
 RQSim metric can also be used as a reward signal for the model to evaluate its own performance. At each RL step we sample from a subset of $$\prod_{test}$$ (a different, much larger set of papers than the one used in fine-tuning stage), generate literature review using the fine-tuned model, calculate RQSim. Following a typical proximal policy optimization (PPO) method we calculate the following as the reward function at each step of RL:
