@@ -37,7 +37,7 @@ To do so after each iteration of fine-tuning, we use our model to generate liter
 
 ***RQSim Benchmark***
 
-We developed an evaluation benchmark, RQSim, to gauge a model’s ability to identify gaps in academic literature and propose research questions that address those gaps. In our view, formulating the right research question is pivotal for writing a high-quality literature review. This is because a well-defined research question guides researchers in selecting and synthesizing relevant concepts and findings from the literature, ultimately shaping the structure and narrative of the review. Based on this notion, the core function of a literature review is to justify the paper's research question by presenting gaps in the literature. This means a model's ability to identify gaps and propose research questions is a predictor of its ability to synthesize quality literature reviews. Therefore, we measure the performance of our model based on its ability to identify gaps in the literature by reading papers in $$R_{p}$$ and propose a set of research questions similar to those suggested in the target paper $$p$$. 
+We developed an evaluation benchmark, Research Question Similarity or RQSim, to gauge a model’s ability to identify gaps in academic literature and propose research questions that address those gaps. In our view, formulating the right research question is pivotal for writing a high-quality literature review. This is because a well-defined research question guides researchers in selecting and synthesizing relevant concepts and findings from the literature, ultimately shaping the structure and narrative of the review. Based on this notion, the core function of a literature review is to justify the paper's research question by presenting gaps in the literature. This means a model's ability to identify gaps and propose research questions is a predictor of its ability to synthesize quality literature reviews. Therefore, we measure the performance of our model based on its ability to identify gaps in the literature by reading papers in $$R_{p}$$ and propose a set of research questions similar to those suggested in the target paper $$p$$. 
 
 For each paper $$p \in \prod_{test}$$, based on R<sub>p</sub> = {r<sub>p,1</sub>, r<sub>p,2</sub>, …, r<sub>p,N<sub>p</sub></sub>}, we instruct the fine-tuned model to generate a set of potential research questions:
 
@@ -45,10 +45,10 @@ Q<sub>p</sub> = {q<sub>p,1</sub>, q<sub>p,2</sub>, …, q<sub>p,n<sub>p</sub></s
 
 The actual research question in paper $$p \in \prod_{test}$$ is $$RQ_{p}$$. We then use Sentence-Embedding (SBERT) to embedd $$RQ_{p}$$ and {q<sub>p,1</sub>, q<sub>p,2</sub>, …, q<sub>p,n<sub>p</sub></sub>}.
 
-Next, we calculate the average cosine similarity between the vector embeddings of generated research questions in $$Q_{p}$$ and the vector embedding of $$RQ_{p}$$:
+Next, we calculate $$RQSim(p)$$ to be the average cosine similarity between the vector embeddings of generated research questions in $$Q_{p}$$ and the vector embedding of $$RQ_{p}$$:
 
 $$\[
-S(p) = \frac{1}{n_p} \sum_{i=1}^{n_p} \text{Cosine}(\vec{q_{p,i}}, \vec{RQ_{p}})
+RQSim(p) = \frac{1}{n_p} \sum_{i=1}^{n_p} \text{Cosine}(\vec{q_{p,i}}, \vec{RQ_{p}})
 \]$$
 
 As discussed higher values of $$S(p)$$ indicates that model's generated research questions semantically converge to the ones proposed by professional academics in the same literature. The average values of $$S(p)$$ across the papers in $$\prod_{test}$$ is RQSim. This metric is used to compare the performance of the fine-tuned model in each iteration with its past iterations and other models (e.g. NotebookLM, o1, gpt-4o). 
