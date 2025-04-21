@@ -1,12 +1,12 @@
 # Objective
 
-This project aims to improve frontier models' performance to craft professional academic literature reviews. Our primary emphasis is on research papers within the social sciences, particularly in economics and finance.
+This project aims to improve frontier models' performance to craft professional academic literature reviews. Our primary emphasis is on research papers within the social sciences, particularly in economics, finance, and MIS.
 
 We first use fine-tuning as a warm-up supervised exercise. We then continue training the model under a reinforcement learning (RL) framework by creating a reward signal, guiding the model to perform a more effective literature review.  
 
 # Data Collection
 
-A curated training sample of target papers $$\prod_{train}$$ is collected from Semantic Scholar. These papers are carefully selected to ensure they are published in high-quality journals, such as QJE, JF, and JFE. All papers in $$\prod_{train}$$ are published before 2020. We also collect a set of out-of-sample papers $$\prod_{test}$$ to evaluate model performance. These are the papers published after 2020. 
+A curated training sample of target papers $$\prod_{train}$$ is collected from Semantic Scholar. These papers are carefully selected to ensure they are published in high-quality journals, such as QJE, JF, JFE, ISR. All papers in $$\prod_{train}$$ are published before 2020. We also collect a set of out-of-sample papers $$\prod_{test}$$ to evaluate model performance. These are the papers published after 2020. 
 
 For each target paper $$p \in {\prod_{train}, \prod_{test}}$$, there is the set of papers referenced by $$p$$:
 
